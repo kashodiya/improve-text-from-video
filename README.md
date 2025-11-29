@@ -9,8 +9,8 @@ Converts video files to audio and transcribes to text using OpenAI Whisper.
 sudo apt-get install ffmpeg  # Ubuntu/Debian
 # or: brew install ffmpeg     # macOS
 
-# Install Python dependencies
-pip install -r requirements.txt
+# Install uv if not already installed
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ## Configuration
@@ -27,10 +27,10 @@ Edit `.env` to set your AWS region and Bedrock model ID if needed.
 
 ```bash
 # Transcribe video
-python transcribe_video.py video.mp4
+uv run transcribe_video.py video.mp4
 
 # Improve transcript using Bedrock
-python improve_transcript.py video.txt
+uv run improve_transcript.py video.txt
 ```
 
 Output will be saved as `video.txt` and `video_improved.txt` in the same directory.
